@@ -19,14 +19,14 @@ namespace Krk.Elevators
 
         void OnEnable()
         {
-            controller.OnMoved += HandleElevatorMoved;
+            controller.OnMoveStarted += HandleElevatorMoved;
 
             view.OnMoveFinished += HandleElevatorMoveFinished;
         }
 
         void OnDisable()
         {
-            controller.OnMoved -= HandleElevatorMoved;
+            controller.OnMoveStarted -= HandleElevatorMoved;
 
             view.OnMoveFinished -= HandleElevatorMoveFinished;
         }

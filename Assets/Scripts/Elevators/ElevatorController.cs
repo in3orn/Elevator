@@ -6,7 +6,8 @@ namespace Krk.Elevators
 {
     public class ElevatorController
     {
-        public UnityAction<FloorData> OnMoved;
+        public UnityAction<FloorData> OnMoveStarted;
+        public UnityAction<int> OnMoveFinished;
 
         readonly ElevatorConfig config;
         readonly IList<int> queue;
@@ -14,6 +15,9 @@ namespace Krk.Elevators
         int currentFloorIndex;
         bool running;
 
+        public bool Running => running;
+
+        public int CurrentFloorIndex => currentFloorIndex;
         public FloorData CurrentFloor => config.floors[currentFloorIndex];
         public ElevatorConfig Config => config;
 
@@ -33,7 +37,7 @@ namespace Krk.Elevators
         {
             AddTargetFloor(config.floors.IndexOf(data));
         }
-        
+
         public void AddTargetFloor(int floorIndex)
         {
             if (queue.Count <= 0)
@@ -71,7 +75,7 @@ namespace Krk.Elevators
                     currentFloorIndex = nextFloorIndex;
                     running = true;
 
-                    OnMoved?.Invoke(config.floors[currentFloorIndex]);
+                    OnMoveStarted?.Invoke(config.floors[currentFloorIndex]);
                     return;
                 }
             }
@@ -80,7 +84,14 @@ namespace Krk.Elevators
         public void FinishMove()
         {
             running = false;
+            OnMoveFinished?.Invoke(currentFloorIndex);
+
             TryMove();
+        }
+
+        public bool IsOnFloor(int floorIndex)
+        {
+            return !Running && currentFloorIndex == floorIndex;
         }
     }
 }

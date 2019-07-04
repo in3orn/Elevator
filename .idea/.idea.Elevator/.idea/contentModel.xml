@@ -487,14 +487,19 @@
             <e p="DoorMediator.cs" t="Include" />
             <e p="DoorState.cs" t="Include" />
             <e p="DoorView.cs" t="Include" />
+            <e p="ElevatorDoorController.cs" t="Include" />
+            <e p="ElevatorDoorMediator.cs" t="Include" />
           </e>
           <e p="Elevators" t="Include">
+            <e p="ElevatorButtonController.cs" t="Include" />
+            <e p="ElevatorButtonMediator.cs" t="Include" />
             <e p="ElevatorConfig.cs" t="Include" />
             <e p="ElevatorController.cs" t="Include" />
             <e p="ElevatorInstaller.cs" t="Include" />
             <e p="ElevatorMediator.cs" t="Include" />
             <e p="ElevatorView.cs" t="Include" />
             <e p="FloorButton.cs" t="Include" />
+            <e p="FloorConfig.cs" t="Include" />
             <e p="FloorData.cs" t="Include" />
             <e p="PanelMediator.cs" t="Include" />
             <e p="PanelView.cs" t="Include" />
