@@ -1,30 +1,25 @@
+using Krk.Common.Elements;
 using UnityEngine;
 
 namespace Krk.Doors
 {
     public class DoorView : MonoBehaviour
     {
-        [SerializeField] private Transform door;
-
-        Vector3 closedScale;
-        Vector3 openScale;
+        [SerializeField] ShowableElement door;
 
         public void Init(DoorState state)
         {
-            closedScale = door.localScale;
-            openScale = door.localScale;
-            openScale.x = 0.1f;
-            door.localScale = state.open ? openScale : closedScale;
+            door.Init(state.open);
         }
 
         public void Open()
         {
-            door.localScale = openScale;
+            door.Show();
         }
 
         public void Close()
         {
-            door.localScale = closedScale;
+            door.Hide();
         }
     }
 }
