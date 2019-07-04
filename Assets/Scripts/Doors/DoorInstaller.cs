@@ -7,6 +7,7 @@ namespace Krk.Doors
         public override void InstallBindings()
         {
             Container.Bind<DoorController>().AsSingle();
+            Container.Bind<DoorAutoController>().AsSingle();
         }
     }
 }

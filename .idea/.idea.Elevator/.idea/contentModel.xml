@@ -466,9 +466,13 @@
             </e>
             <e p="Elements" t="Include">
               <e p="ShowableElement.cs" t="Include" />
+              <e p="Trigger.cs" t="Include" />
+              <e p="TriggerConfig.cs" t="Include" />
             </e>
           </e>
           <e p="Doors" t="Include">
+            <e p="DoorAutoController.cs" t="Include" />
+            <e p="DoorAutoMediator.cs" t="Include" />
             <e p="DoorController.cs" t="Include" />
             <e p="DoorInstaller.cs" t="Include" />
             <e p="DoorMediator.cs" t="Include" />
