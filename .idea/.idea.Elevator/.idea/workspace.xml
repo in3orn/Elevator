@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a78fa9b-fff8-4d6a-aa02-b41d7df88ed9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Doors.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Doors/DoorMediatorEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorMediator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorMediator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Doors/DoorView.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Elevator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Elevator/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Elevator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Elevator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,23 +25,112 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Supercyan Character Pack Free Sample/Scripts/Demo.cs">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
+            <state relative-caret-position="66">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
               <folding>
-                <marker date="1483639102000" expanded="false" signature="6:44" ph="..." />
-                <marker date="1483639102000" expanded="true" signature="80:2305" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="266:331" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="358:576" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="405:469" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="510:570" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="602:2303" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="767:831" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="884:944" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="1064:1569" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="1181:1369" ph="{...}" />
-                <marker date="1483639102000" expanded="true" signature="1255:1355" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="46:955" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="80:953" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="278:335" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="363:449" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="477:648" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="677:850" ph="{...}" />
+                <marker date="1562238293021" expanded="true" signature="893:947" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Tests/Doors/DoorControllerTest.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <marker date="1562236119955" expanded="true" signature="43:785" ph="{...}" />
+                <marker date="1562236119955" expanded="true" signature="81:783" ph="{...}" />
+                <marker date="1562236119955" expanded="true" signature="166:233" ph="{...}" />
+                <marker date="1562236119955" expanded="true" signature="312:468" ph="{...}" />
+                <marker date="1562236119955" expanded="true" signature="549:777" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorView.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+              <folding>
+                <marker date="1562242423296" expanded="true" signature="39:631" ph="{...}" />
+                <marker date="1562242423296" expanded="true" signature="83:629" ph="{...}" />
+                <marker date="1562242423296" expanded="true" signature="238:442" ph="{...}" />
+                <marker date="1562242423296" expanded="true" signature="470:531" ph="{...}" />
+                <marker date="1562242423296" expanded="true" signature="560:623" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorMediator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+              <folding>
+                <marker date="1562242064493" expanded="true" signature="6:33" ph="..." />
+                <marker date="1562242064493" expanded="true" signature="54:758" ph="{...}" />
+                <marker date="1562242064493" expanded="true" signature="102:756" ph="{...}" />
+                <marker date="1562242064493" expanded="true" signature="215:276" ph="{...}" />
+                <marker date="1562242064493" expanded="true" signature="301:427" ph="{...}" />
+                <marker date="1562242064493" expanded="true" signature="453:579" ph="{...}" />
+                <marker date="1562242064493" expanded="true" signature="619:664" ph="{...}" />
+                <marker date="1562242064493" expanded="true" signature="704:750" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Editor/Doors/DoorMediatorEditor.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+              <folding>
+                <marker date="1562242191327" expanded="true" signature="6:37" ph="..." />
+                <marker date="1562242191327" expanded="true" signature="58:489" ph="{...}" />
+                <marker date="1562242191327" expanded="true" signature="146:487" ph="{...}" />
+                <marker date="1562242191327" expanded="true" signature="198:481" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorInstaller.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+              <folding>
+                <marker date="1562237988972" expanded="true" signature="35:237" ph="{...}" />
+                <marker date="1562237988972" expanded="true" signature="99:235" ph="{...}" />
+                <marker date="1562237988972" expanded="true" signature="152:229" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorState.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <folding>
+                <marker date="1562234672124" expanded="true" signature="34:150" ph="{...}" />
+                <marker date="1562234672124" expanded="true" signature="82:148" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -40,7 +142,31 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorMediator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/Doors/DoorMediatorEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Supercyan Character Pack Free Sample/Scripts/Demo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/MonoInstallerBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Tests/Doors/DoorControllerTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Tests/Tests.asmdef" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Doors/DoorState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Tests/Tests.asmdef" />
+        <option value="$PROJECT_DIR$/Assets/Tests/Doors/DoorControllerTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Doors/DoorInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Doors/DoorController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/DoorMediatorEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Doors/DoorMediator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/Doors/DoorMediatorEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Doors/DoorView.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
@@ -57,6 +183,42 @@
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Editor" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Editor" type="1045f7f1:UnityExplorerNode" />
+              <item name="Doors" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Doors" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Tests" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
       </pane>
@@ -102,15 +264,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562233129018</updated>
-      <workItem from="1562233137644" duration="253000" />
+      <workItem from="1562233137644" duration="6226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253000" />
+    <option name="totallyTimeSpent" value="6226000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Image Layers" />
@@ -119,6 +291,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="NuGet" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Unit Tests" />
       <window_info anchor="bottom" id="Terminal" />
@@ -166,6 +339,132 @@
             <marker date="1483639102000" expanded="true" signature="1064:1569" ph="{...}" />
             <marker date="1483639102000" expanded="true" signature="1181:1369" ph="{...}" />
             <marker date="1483639102000" expanded="true" signature="1255:1355" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Tests/Tests.asmdef">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <marker date="1562236024459" expanded="true" signature="0:391" ph="{...}" />
+            <marker date="1562236024459" expanded="true" signature="41:66" ph="[...]" />
+            <marker date="1562236024459" expanded="true" signature="99:131" ph="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Tests/Doors/DoorControllerTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <marker date="1562236119955" expanded="true" signature="43:785" ph="{...}" />
+            <marker date="1562236119955" expanded="true" signature="81:783" ph="{...}" />
+            <marker date="1562236119955" expanded="true" signature="166:233" ph="{...}" />
+            <marker date="1562236119955" expanded="true" signature="312:468" ph="{...}" />
+            <marker date="1562236119955" expanded="true" signature="549:777" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/MonoInstallerBase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding>
+            <marker date="1549300443000" expanded="false" signature="24:76" ph="..." />
+            <marker date="1549300443000" expanded="true" signature="95:792" ph="{...}" />
+            <marker date="1549300443000" expanded="true" signature="102:253" ph="/* We'd prefer to make this abstract but Unity 5.3.5 has a bug where references ... */" />
+            <marker date="1549300443000" expanded="true" signature="342:790" ph="{...}" />
+            <marker date="1549300443000" expanded="true" signature="405:447" ph="{...}" />
+            <marker date="1549300443000" expanded="true" signature="486:542" ph="{...}" />
+            <marker date="1549300443000" expanded="true" signature="579:668" ph="{...}" />
+            <marker date="1549300443000" expanded="true" signature="715:784" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <marker date="1562238293021" expanded="true" signature="46:955" ph="{...}" />
+            <marker date="1562238293021" expanded="true" signature="80:953" ph="{...}" />
+            <marker date="1562238293021" expanded="true" signature="278:335" ph="{...}" />
+            <marker date="1562238293021" expanded="true" signature="363:449" ph="{...}" />
+            <marker date="1562238293021" expanded="true" signature="477:648" ph="{...}" />
+            <marker date="1562238293021" expanded="true" signature="677:850" ph="{...}" />
+            <marker date="1562238293021" expanded="true" signature="893:947" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorInstaller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+          <folding>
+            <marker date="1562237988972" expanded="true" signature="35:237" ph="{...}" />
+            <marker date="1562237988972" expanded="true" signature="99:235" ph="{...}" />
+            <marker date="1562237988972" expanded="true" signature="152:229" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorState.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1562234672124" expanded="true" signature="34:150" ph="{...}" />
+            <marker date="1562234672124" expanded="true" signature="82:148" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorMediator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding>
+            <marker date="1562242064493" expanded="true" signature="6:33" ph="..." />
+            <marker date="1562242064493" expanded="true" signature="54:758" ph="{...}" />
+            <marker date="1562242064493" expanded="true" signature="102:756" ph="{...}" />
+            <marker date="1562242064493" expanded="true" signature="215:276" ph="{...}" />
+            <marker date="1562242064493" expanded="true" signature="301:427" ph="{...}" />
+            <marker date="1562242064493" expanded="true" signature="453:579" ph="{...}" />
+            <marker date="1562242064493" expanded="true" signature="619:664" ph="{...}" />
+            <marker date="1562242064493" expanded="true" signature="704:750" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Editor/Doors/DoorMediatorEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+          <folding>
+            <marker date="1562242191327" expanded="true" signature="6:37" ph="..." />
+            <marker date="1562242191327" expanded="true" signature="58:489" ph="{...}" />
+            <marker date="1562242191327" expanded="true" signature="146:487" ph="{...}" />
+            <marker date="1562242191327" expanded="true" signature="198:481" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Doors/DoorView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding>
+            <marker date="1562242423296" expanded="true" signature="39:631" ph="{...}" />
+            <marker date="1562242423296" expanded="true" signature="83:629" ph="{...}" />
+            <marker date="1562242423296" expanded="true" signature="238:442" ph="{...}" />
+            <marker date="1562242423296" expanded="true" signature="470:531" ph="{...}" />
+            <marker date="1562242423296" expanded="true" signature="560:623" ph="{...}" />
           </folding>
         </state>
       </provider>
