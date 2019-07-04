@@ -472,6 +472,12 @@
               <e p="Trigger.cs" t="Include" />
               <e p="TriggerConfig.cs" t="Include" />
             </e>
+            <e p="View" t="Include">
+              <e p="DataButton.cs" t="Include" />
+              <e p="DynamicContent.cs" t="Include" />
+              <e p="IDynamicItem.cs" t="Include" />
+              <e p="ViewInstaller.cs" t="Include" />
+            </e>
           </e>
           <e p="Doors" t="Include">
             <e p="DoorAutoController.cs" t="Include" />
@@ -488,7 +494,10 @@
             <e p="ElevatorInstaller.cs" t="Include" />
             <e p="ElevatorMediator.cs" t="Include" />
             <e p="ElevatorView.cs" t="Include" />
+            <e p="FloorButton.cs" t="Include" />
             <e p="FloorData.cs" t="Include" />
+            <e p="PanelMediator.cs" t="Include" />
+            <e p="PanelView.cs" t="Include" />
           </e>
           <e p="Scripts.asmdef" t="Include" />
         </e>
