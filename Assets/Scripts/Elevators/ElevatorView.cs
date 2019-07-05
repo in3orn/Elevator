@@ -15,16 +15,16 @@ namespace Krk.Elevators
 
         public void Init(float y)
         {
-            var position = platform.position;
+            var position = platform.localPosition;
             position.y = y;
-            platform.position = position;
+            platform.localPosition = position;
         }
         
         public void Move(float y)
         {
             var distance = Mathf.Abs(platform.position.y - y);
             var duration = distance / config.speed;
-            platform.DOMoveY(y, duration).SetEase(Ease.Linear).OnComplete(FinishMove);
+            platform.DOLocalMoveY(y, duration).SetEase(Ease.Linear).OnComplete(FinishMove);
         }
 
         void FinishMove()
