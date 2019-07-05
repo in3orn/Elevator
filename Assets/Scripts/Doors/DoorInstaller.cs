@@ -7,8 +7,7 @@ namespace Krk.Doors
 {
     public class DoorInstaller : MonoInstaller<DoorInstaller>
     {
-        [FormerlySerializedAs("elevatorButtonConfig")] [SerializeField]
-        FloorConfig floorConfig;
+        [SerializeField] FloorConfig floorConfig;
 
         public override void InstallBindings()
         {

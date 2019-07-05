@@ -7,7 +7,7 @@ namespace Krk.Elevators
     public class ElevatorConfig : ScriptableObject
     {
         public float speed;
-        [FormerlySerializedAs("waitForDoorDuration")] [FormerlySerializedAs("waitDuration")] public float waitForPassengersDuration;
+        public float waitForPassengersDuration;
         public float waitIdleDuration;
         public int defaultFloorIndex;
         public FloorData[] floors;
