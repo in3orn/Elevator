@@ -22,7 +22,7 @@ namespace Krk.Elevators
         
         public void Move(float y)
         {
-            var distance = Mathf.Abs(platform.position.y - y);
+            var distance = Mathf.Abs(platform.localPosition.y - y);
             var duration = distance / config.speed;
             platform.DOLocalMoveY(y, duration).SetEase(Ease.Linear).OnComplete(FinishMove);
         }

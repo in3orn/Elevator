@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using ModestTree;
 using UnityEngine.Events;
 
 namespace Krk.Elevators
@@ -43,7 +42,18 @@ namespace Krk.Elevators
 
         public void AddTargetFloor(FloorData data)
         {
-            AddTargetFloor(config.floors.IndexOf(data));
+            AddTargetFloor(GetIndex(data));
+        }
+
+        int GetIndex(FloorData data)
+        {
+            for (var i = 0; i < config.floors.Length; i++)
+            {
+                if (config.floors[i].number.Equals(data.number))
+                    return i;
+            }
+
+            return -1;
         }
 
         public void AddTargetFloor(int floorIndex)

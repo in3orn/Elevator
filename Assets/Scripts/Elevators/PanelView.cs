@@ -14,7 +14,6 @@ namespace Krk.Elevators
 
         public Button resetButton;
 
-        [SerializeField] Trigger trigger;
         [SerializeField] ShowableElement panel;
 
         [SerializeField] RectTransform buttonsContent;
@@ -29,50 +28,40 @@ namespace Krk.Elevators
             buttons = new List<FloorButton>();
         }
 
-        public void Init(IList<FloorData> floors)
+        public void Init()
         {
             panel.Init(false);
+        }
 
+        public void Show(IList<FloorData> floors)
+        {
+            Unsubscribe();
             dynamicContent.Init(buttonsContent, buttonTemplate, buttons, floors);
+            resetButton.transform.SetAsLastSibling();
+            Subscribe();
+            
+            panel.Show();
+        }
 
+        public void Hide()
+        {
+            panel.Hide();
+        }
+
+        void Subscribe()
+        {
             foreach (var button in buttons)
             {
                 button.OnClicked += HandleFloorButtonClicked;
             }
-
-            resetButton.transform.SetAsLastSibling();
         }
-
-        void OnEnable()
+        
+        void Unsubscribe()
         {
-            trigger.OnActivated += HandleTriggerActivated;
-            trigger.OnDeactivated += HandleTriggerDeactivated;
-
             foreach (var button in buttons)
             {
                 button.OnClicked -= HandleFloorButtonClicked;
             }
-        }
-
-        void OnDisable()
-        {
-            trigger.OnActivated -= HandleTriggerActivated;
-            trigger.OnDeactivated -= HandleTriggerDeactivated;
-
-            foreach (var button in buttons)
-            {
-                button.OnClicked -= HandleFloorButtonClicked;
-            }
-        }
-
-        void HandleTriggerActivated()
-        {
-            panel.Show();
-        }
-
-        void HandleTriggerDeactivated()
-        {
-            panel.Hide();
         }
 
         void HandleFloorButtonClicked(FloorData data)

@@ -7,7 +7,7 @@ namespace Krk.Elevators
     public class ElevatorMediator : MonoBehaviour
     {
         [SerializeField] ElevatorView view;
-
+        
         [Inject] ElevatorController controller;
 
         public ElevatorController Controller => controller;
@@ -37,7 +37,7 @@ namespace Krk.Elevators
             controller.OnWaitIdleStarted -= HandleElevatorWaitIdleStarted;
             controller.OnWaitIdleStopped -= HandleElevatorWaitIdleStopped;
 
-            view.OnMoveFinished -= HandleElevatorMoveFinished;
+            view.OnMoveFinished -= HandleElevatorMoveFinished;  
         }
 
         void HandleElevatorMoved(FloorData data)

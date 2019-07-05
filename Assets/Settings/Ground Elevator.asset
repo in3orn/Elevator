@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 928e5984b4b04efba70bc452ae8a59c9, type: 3}
-  m_Name: Elevator
+  m_Name: Ground Elevator
   m_EditorClassIdentifier: 
   speed: 1
   waitForDoorDuration: 3
