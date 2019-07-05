@@ -1,3 +1,4 @@
+using Krk.Audio;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,7 @@ namespace Krk.Elevators
         {
             Container.BindInstance(elevatorConfig).IfNotBound();
             Container.Bind<ElevatorController>().AsSingle();
+            Container.Bind<SoundController>().AsSingle();
         }
     }
 }

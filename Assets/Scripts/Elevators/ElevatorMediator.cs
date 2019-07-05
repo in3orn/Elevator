@@ -1,4 +1,5 @@
 using System.Collections;
+using Krk.Audio;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +10,7 @@ namespace Krk.Elevators
         [SerializeField] ElevatorView view;
 
         [Inject] ElevatorController controller;
+        [Inject] SoundController soundController;
 
         public ElevatorController Controller => controller;
 
@@ -48,12 +50,28 @@ namespace Krk.Elevators
                     waitIdleCoroutine = null;
                 }
 
-                if (state == ElevatorState.Running || state == ElevatorState.GoingIdle)
+                if (state == ElevatorState.Running)
+                {
                     view.Move(controller.CurrentFloor.y);
+                    soundController.PlaySound(SoundType.ElevatorStart);
+                }
+                else if (state == ElevatorState.GoingIdle)
+                {
+                    view.Move(controller.CurrentFloor.y);
+                }
                 else if (state == ElevatorState.WaitingForPassengers)
+                {
                     StartCoroutine(WaitForPassengers());
+                }
                 else if (state == ElevatorState.WaitingForGoingIdle)
+                {
                     waitIdleCoroutine = StartCoroutine(WaitIdle());
+                    soundController.PlaySound(SoundType.ElevatorEnd);
+                }
+                else if (state == ElevatorState.WaitingForDoorOpen)
+                {
+                    soundController.PlaySound(SoundType.ElevatorEnd);
+                }
             }
         }
 

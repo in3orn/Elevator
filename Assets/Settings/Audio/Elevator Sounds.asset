@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe094fe0f2451183b028887abbfe91, type: 3}
+  m_Name: Elevator Sounds
+  m_EditorClassIdentifier: 
+  sounds:
+  - type: 0
+    clip: {fileID: 8300000, guid: 0b2db94b395d50c49927f81e743c3dd9, type: 3}
+    volume: 0.9
+  - type: 1
+    clip: {fileID: 8300000, guid: f851a54d759f3e04f8aa37a53a9c6688, type: 3}
+    volume: 0.9
+  - type: 2
+    clip: {fileID: 8300000, guid: df4e018ed53eafb47b3a3c586c3e7dfc, type: 3}
+    volume: 0.65
+  - type: 3
+    clip: {fileID: 8300000, guid: df4e018ed53eafb47b3a3c586c3e7dfc, type: 3}
+    volume: 0.65
