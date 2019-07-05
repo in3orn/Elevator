@@ -6,9 +6,7 @@ namespace Krk.Audio
     public enum SoundType
     {
         ElevatorStart = 0,
-        ElevatorEnd,
-        DoorOpen,
-        DoorClose
+        ElevatorEnd
     }
     
     [Serializable]
@@ -16,6 +14,5 @@ namespace Krk.Audio
     {
         public SoundType type;
         public AudioClip clip;
-        public float volume;
     }
 }

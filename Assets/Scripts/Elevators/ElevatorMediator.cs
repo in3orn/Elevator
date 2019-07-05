@@ -11,6 +11,7 @@ namespace Krk.Elevators
 
         [Inject] ElevatorController controller;
         [Inject] SoundController soundController;
+        [Inject] MusicController musicController;
 
         public ElevatorController Controller => controller;
 
@@ -54,6 +55,7 @@ namespace Krk.Elevators
                 {
                     view.Move(controller.CurrentFloor.y);
                     soundController.PlaySound(SoundType.ElevatorStart);
+                    musicController.Play();
                 }
                 else if (state == ElevatorState.GoingIdle)
                 {
@@ -67,10 +69,12 @@ namespace Krk.Elevators
                 {
                     waitIdleCoroutine = StartCoroutine(WaitIdle());
                     soundController.PlaySound(SoundType.ElevatorEnd);
+                    musicController.Pause();
                 }
                 else if (state == ElevatorState.WaitingForDoorOpen)
                 {
                     soundController.PlaySound(SoundType.ElevatorEnd);
+                    musicController.Pause();
                 }
             }
         }

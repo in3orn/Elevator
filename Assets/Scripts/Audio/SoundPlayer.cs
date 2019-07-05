@@ -24,7 +24,6 @@ namespace Krk.Audio
         void HandleSoundPlayed(SoundType type)
         {
             var sound = GetSound(type);
-//            source.volume = sound.volume;
             source.clip = sound.clip;
             source.Play();
         }
