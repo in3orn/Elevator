@@ -6,6 +6,8 @@ namespace Krk.Elevators
     public class ElevatorButtonController
     {
         public UnityAction<bool> OnCanSwitchChanged;
+        public UnityAction OnSwitchedOn;
+        public UnityAction OnSwitchedOff;
 
         readonly FloorConfig config;
         readonly ElevatorController elevatorController;
@@ -16,6 +18,7 @@ namespace Krk.Elevators
         bool canUse;
 
         public bool CanUse => canUse;
+        public bool SwitchedOn => switchedOn;
 
         public bool InRange
         {
@@ -42,6 +45,9 @@ namespace Krk.Elevators
             if (switchedOn) return;
 
             switchedOn = true;
+            OnSwitchedOn?.Invoke();
+            
+            //TODO should not be here - use mediator OnSwitchedOn
             elevatorController.AddTargetFloor(config.floorIndex);
 
             canUse = false;
@@ -51,7 +57,10 @@ namespace Krk.Elevators
         public void TrySwitchOff(int floorIndex)
         {
             if (floorIndex == config.floorIndex)
+            {
                 switchedOn = false;
+                OnSwitchedOff?.Invoke();
+            }
         }
 
         void UpdateCanUse()

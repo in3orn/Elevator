@@ -6,11 +6,17 @@ namespace Krk.Elevators
 {
     public class ElevatorButtonMediator : MonoBehaviour
     {
-        [SerializeField] ShowableElement view;
+        [SerializeField] ShowableElement actionView;
+        [SerializeField] ShowableElement buttonIndicator;
         [SerializeField] Trigger trigger;
 
         [Inject] ElevatorButtonController controller;
         [Inject] ElevatorController elevatorController;
+
+        void Start()
+        {
+            buttonIndicator.Init(false);
+        }
 
         void OnEnable()
         {
@@ -18,6 +24,8 @@ namespace Krk.Elevators
             trigger.OnDeactivated += HandleTriggerDeactivated;
 
             controller.OnCanSwitchChanged += HandleCanSwitchChanged;
+            controller.OnSwitchedOn += HandleButtonSwitchedOn;
+            controller.OnSwitchedOff += HandleButtonSwitchedOff;
 
             elevatorController.OnMoveFinished += HandleElevatorMoveFinished;
         }
@@ -28,6 +36,8 @@ namespace Krk.Elevators
             trigger.OnDeactivated -= HandleTriggerDeactivated;
 
             controller.OnCanSwitchChanged -= HandleCanSwitchChanged;
+            controller.OnSwitchedOn -= HandleButtonSwitchedOn;
+            controller.OnSwitchedOff -= HandleButtonSwitchedOff;
 
             elevatorController.OnMoveFinished -= HandleElevatorMoveFinished;
         }
@@ -45,9 +55,19 @@ namespace Krk.Elevators
         void HandleCanSwitchChanged(bool canSwitch)
         {
             if (canSwitch)
-                view.Show();
+                actionView.Show();
             else
-                view.Hide();
+                actionView.Hide();
+        }
+
+        void HandleButtonSwitchedOn()
+        {
+            buttonIndicator.Show();
+        }
+
+        void HandleButtonSwitchedOff()
+        {
+            buttonIndicator.Hide();
         }
 
         void HandleElevatorMoveFinished(int floorIndex)
