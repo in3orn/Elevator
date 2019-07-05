@@ -27,7 +27,7 @@ namespace Krk.Elevators
             controller.OnSwitchedOn += HandleButtonSwitchedOn;
             controller.OnSwitchedOff += HandleButtonSwitchedOff;
 
-            elevatorController.OnMoveFinished += HandleElevatorMoveFinished;
+            elevatorController.OnStateChanged += HandleElevatorStateChanged;
         }
 
         void OnDisable()
@@ -39,7 +39,7 @@ namespace Krk.Elevators
             controller.OnSwitchedOn -= HandleButtonSwitchedOn;
             controller.OnSwitchedOff -= HandleButtonSwitchedOff;
 
-            elevatorController.OnMoveFinished -= HandleElevatorMoveFinished;
+            elevatorController.OnStateChanged -= HandleElevatorStateChanged;
         }
 
         void HandleTriggerActivated()
@@ -70,9 +70,10 @@ namespace Krk.Elevators
             buttonIndicator.Hide();
         }
 
-        void HandleElevatorMoveFinished(int floorIndex)
+        void HandleElevatorStateChanged(ElevatorState state)
         {
-            controller.TrySwitchOff(floorIndex);
+            if(state == ElevatorState.WaitingForDoorOpen)
+                controller.TrySwitchOff(elevatorController.CurrentFloorIndex);    
         }
 
         void Update()

@@ -7,7 +7,7 @@ namespace Krk.Elevators
     public class ElevatorMediator : MonoBehaviour
     {
         [SerializeField] ElevatorView view;
-        
+
         [Inject] ElevatorController controller;
 
         public ElevatorController Controller => controller;
@@ -22,42 +22,39 @@ namespace Krk.Elevators
 
         void OnEnable()
         {
-            controller.OnMoveStarted += HandleElevatorMoved;
-            controller.OnWaitForDoorStarted += HandleElevatorWaitForDoorStarted;
-            controller.OnWaitIdleStarted += HandleElevatorWaitIdleStarted;
-            controller.OnWaitIdleStopped += HandleElevatorWaitIdleStopped;
+            controller.OnStateChanged += HandleElevatorStateChanged;
 
             view.OnMoveFinished += HandleElevatorMoveFinished;
         }
 
         void OnDisable()
         {
-            controller.OnMoveStarted -= HandleElevatorMoved;
-            controller.OnWaitForDoorStarted -= HandleElevatorWaitForDoorStarted;
-            controller.OnWaitIdleStarted -= HandleElevatorWaitIdleStarted;
-            controller.OnWaitIdleStopped -= HandleElevatorWaitIdleStopped;
+            controller.OnStateChanged -= HandleElevatorStateChanged;
 
-            view.OnMoveFinished -= HandleElevatorMoveFinished;  
+            view.OnMoveFinished -= HandleElevatorMoveFinished;
         }
 
-        void HandleElevatorMoved(FloorData data)
+        void HandleElevatorStateChanged(ElevatorState state)
         {
-            view.Move(data.y);
-        }
+            if (state == ElevatorState.WaitingForGoingIdle)
+            {
+                waitIdleCoroutine = StartCoroutine(WaitIdle());
+            }
+            else
+            {
+                if (waitIdleCoroutine != null)
+                {
+                    StopCoroutine(waitIdleCoroutine);
+                    waitIdleCoroutine = null;
+                }
 
-        void HandleElevatorWaitForDoorStarted()
-        {
-            StartCoroutine(WaitForDoor());
-        }
-
-        void HandleElevatorWaitIdleStarted()
-        {
-            waitIdleCoroutine = StartCoroutine(WaitIdle());
-        }
-
-        void HandleElevatorWaitIdleStopped()
-        {
-            StopCoroutine(waitIdleCoroutine);
+                if (state == ElevatorState.Running || state == ElevatorState.GoingIdle)
+                    view.Move(controller.CurrentFloor.y);
+                else if (state == ElevatorState.WaitingForPassengers)
+                    StartCoroutine(WaitForPassengers());
+                else if (state == ElevatorState.WaitingForGoingIdle)
+                    waitIdleCoroutine = StartCoroutine(WaitIdle());
+            }
         }
 
         void HandleElevatorMoveFinished()
@@ -65,16 +62,16 @@ namespace Krk.Elevators
             controller.FinishMove();
         }
 
-        IEnumerator WaitForDoor()
+        IEnumerator WaitForPassengers()
         {
-            yield return new WaitForSeconds(controller.Config.waitForDoorDuration);
-            controller.WaitForDoorFinish();
+            yield return new WaitForSeconds(controller.Config.waitForPassengersDuration);
+            controller.State = ElevatorState.WaitingForDoorClose;
         }
 
         IEnumerator WaitIdle()
         {
             yield return new WaitForSeconds(controller.Config.waitIdleDuration);
-            controller.WaitIdleFinish();
+            controller.TryGoIdle();
         }
     }
 }

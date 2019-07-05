@@ -14,8 +14,7 @@ namespace Krk.Doors
 
         void OnEnable()
         {
-            elevatorController.OnMoveFinished += HandleElevatorMoveFinished;
-            elevatorController.OnWaitForDoorFinished += HandleElevatorWaitFinished;
+            elevatorController.OnStateChanged += HandleElevatorStateChanged;
 
             doorController.OnOpenFinished += HandleDoorOpenFinished;
             doorController.OnCloseFinished += HandleDoorCloseFinished;
@@ -26,9 +25,8 @@ namespace Krk.Doors
 
         void OnDisable()
         {
-            elevatorController.OnMoveFinished -= HandleElevatorMoveFinished;
-            elevatorController.OnWaitForDoorFinished -= HandleElevatorWaitFinished;
-
+            elevatorController.OnStateChanged -= HandleElevatorStateChanged;
+            
             doorController.OnOpenFinished -= HandleDoorOpenFinished;
             doorController.OnCloseFinished -= HandleDoorCloseFinished;
 
@@ -36,24 +34,22 @@ namespace Krk.Doors
             trigger.OnDeactivated -= HandleTriggerDeactivated;
         }
 
-        void HandleElevatorMoveFinished(int floorIndex)
+        void HandleElevatorStateChanged(ElevatorState state)
         {
-            doorController.TryOpenAndLock();
-        }
-
-        void HandleElevatorWaitFinished()
-        {
-            if (!trigger.IsActivated)
+            if (state == ElevatorState.WaitingForDoorOpen)
+                doorController.TryOpenAndLock();
+            else if (state == ElevatorState.WaitingForDoorClose && !trigger.IsActivated)
                 doorController.UnlockAndClose();
         }
 
         void HandleDoorOpenFinished()
         {
-            elevatorController.WaitForDoorStart();
+            elevatorController.State = ElevatorState.WaitingForPassengers;
         }
 
         void HandleDoorCloseFinished()
         {
+            elevatorController.State = ElevatorState.WaitingForGoingIdle;
             elevatorController.TryMove();
         }
 
@@ -65,7 +61,7 @@ namespace Krk.Doors
 
         void HandleTriggerDeactivated()
         {
-            if (!elevatorController.WaitingForDoor && !doorController.State.running)
+            if (elevatorController.State == ElevatorState.WaitingForDoorClose && !doorController.State.running)
                 doorController.UnlockAndClose();
         }
     }
