@@ -17,6 +17,8 @@ namespace Krk.Elevators
             trigger.OnDeactivated += HandlePanelTriggerDeactivated;
 
             view.resetButton.onClick.AddListener(HandleResetButtonClicked);
+
+            controller.OnStateChanged += HandleElevatorStateChanged;
         }
 
         void OnDisable()
@@ -29,7 +31,7 @@ namespace Krk.Elevators
 
         void HandlePanelTriggerActivated()
         {
-            view.Show(controller.Config.floors);
+            view.Show(controller.Config.floors, controller.Queue, controller.CurrentFloorIndex);
             view.OnFloorButtonClicked += HandleFloorButtonClicked;
         }
 
@@ -42,11 +44,18 @@ namespace Krk.Elevators
         void HandleFloorButtonClicked(FloorData data)
         {
             controller.AddTargetFloor(data);
+            view.Refresh(controller.Queue, controller.CurrentFloorIndex);
         }
 
         void HandleResetButtonClicked()
         {
             controller.Reset();
+            view.Refresh(controller.Queue, controller.CurrentFloorIndex);
+        }
+
+        void HandleElevatorStateChanged(ElevatorState state)
+        {
+            view.Refresh(controller.Queue, controller.CurrentFloorIndex);
         }
     }
 }

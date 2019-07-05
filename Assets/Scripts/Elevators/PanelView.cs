@@ -33,12 +33,14 @@ namespace Krk.Elevators
             panel.Init(false);
         }
 
-        public void Show(IList<FloorData> floors)
+        public void Show(IList<FloorData> floors, IList<int> queued, int selected)
         {
             Unsubscribe();
             dynamicContent.Init(buttonsContent, buttonTemplate, buttons, floors);
             resetButton.transform.SetAsLastSibling();
             Subscribe();
+
+            Refresh(queued, selected);
             
             panel.Show();
         }
@@ -55,7 +57,7 @@ namespace Krk.Elevators
                 button.OnClicked += HandleFloorButtonClicked;
             }
         }
-        
+
         void Unsubscribe()
         {
             foreach (var button in buttons)
@@ -67,6 +69,20 @@ namespace Krk.Elevators
         void HandleFloorButtonClicked(FloorData data)
         {
             OnFloorButtonClicked?.Invoke(data);
+        }
+
+        public void Refresh(IList<int> queued, int selected)
+        {
+            for (var i = 0; i < buttons.Count; i++)
+            {
+                var button = buttons[i];
+                if (i == selected)
+                    button.State = FloorButtonState.Selected;
+                else if (queued.Contains(i))
+                    button.State = FloorButtonState.Queued;
+                else
+                    button.State = FloorButtonState.Default;
+            }
         }
     }
 }

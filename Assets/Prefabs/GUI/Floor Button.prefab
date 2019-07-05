@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6765550840362420632}
   label: {fileID: 6765550840675605911}
+  border: {fileID: 6765550840362420633}
 --- !u!1001 &4737714939477815392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +150,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4737714939477815392}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6765550840362420633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2043418197189147129, guid: a78cdde5f812fb74dad2141e35dc8f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 4737714939477815392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765550840362420613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6765550840362420632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2043418197189147128, guid: a78cdde5f812fb74dad2141e35dc8f56,

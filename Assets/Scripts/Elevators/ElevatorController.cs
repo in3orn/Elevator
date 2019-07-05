@@ -27,6 +27,7 @@ namespace Krk.Elevators
         public int CurrentFloorIndex => currentFloorIndex;
         public FloorData CurrentFloor => config.floors[currentFloorIndex];
         public ElevatorConfig Config => config;
+        public IList<int> Queue => queue;
 
         public ElevatorState State
         {
