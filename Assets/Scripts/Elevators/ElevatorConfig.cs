@@ -6,6 +6,7 @@ namespace Krk.Elevators
     public class ElevatorConfig : ScriptableObject
     {
         public float speed;
+        public float waitDuration;
         public int defaultFloorIndex;
         public FloorData[] floors;
     }

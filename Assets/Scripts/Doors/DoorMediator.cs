@@ -16,14 +16,20 @@ namespace Krk.Doors
 
         void OnEnable()
         {
-            controller.OnOpened += HandleDoorOpened;
-            controller.OnClosed += HandleDoorClosed;
+            controller.OnOpenStarted += HandleDoorOpened;
+            controller.OnCloseStarted += HandleDoorClosed;
+
+            view.OnOpenFinished += HandleDoorOpenFinished;
+            view.OnCloseFinished += HandleDoorCloseFinished;
         }
 
         void OnDisable()
         {
-            controller.OnOpened -= HandleDoorOpened;
-            controller.OnClosed -= HandleDoorClosed;
+            controller.OnOpenStarted -= HandleDoorOpened;
+            controller.OnCloseStarted -= HandleDoorClosed;
+
+            view.OnOpenFinished -= HandleDoorOpenFinished;
+            view.OnCloseFinished -= HandleDoorCloseFinished;
         }
 
         public void HandleDoorOpened()
@@ -34,6 +40,16 @@ namespace Krk.Doors
         public void HandleDoorClosed()
         {
             view.Close();
+        }
+
+        void HandleDoorOpenFinished()
+        {
+            controller.OpenFinish();
+        }
+
+        void HandleDoorCloseFinished()
+        {
+            controller.CloseFinish();
         }
     }
 }

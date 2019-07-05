@@ -9,12 +9,17 @@ namespace Krk.Doors
     {
         [SerializeField] Trigger trigger;
 
-        [Inject] ElevatorDoorController controller;
+        [Inject] ElevatorDoorController doorController;
         [Inject] ElevatorController elevatorController;
 
         void OnEnable()
         {
             elevatorController.OnMoveFinished += HandleElevatorMoveFinished;
+            elevatorController.OnWaitFinished += HandleElevatorWaitFinished;
+
+            doorController.OnOpenFinished += HandleDoorOpenFinished;
+            doorController.OnCloseFinished += HandleDoorCloseFinished;
+
             trigger.OnActivated += HandleTriggerActivated;
             trigger.OnDeactivated += HandleTriggerDeactivated;
         }
@@ -22,22 +27,46 @@ namespace Krk.Doors
         void OnDisable()
         {
             elevatorController.OnMoveFinished -= HandleElevatorMoveFinished;
-            
+            elevatorController.OnWaitFinished -= HandleElevatorWaitFinished;
+
+            doorController.OnOpenFinished -= HandleDoorOpenFinished;
+            doorController.OnCloseFinished -= HandleDoorCloseFinished;
+
             trigger.OnActivated -= HandleTriggerActivated;
             trigger.OnDeactivated -= HandleTriggerDeactivated;
         }
 
         void HandleElevatorMoveFinished(int floorIndex)
         {
-            controller.TryOpenAndLock();
+            doorController.TryOpenAndLock();
+        }
+
+        void HandleElevatorWaitFinished()
+        {
+            if (!trigger.IsActivated)
+                doorController.UnlockAndClose();
+        }
+
+        void HandleDoorOpenFinished()
+        {
+            elevatorController.WaitStart();
+        }
+
+        void HandleDoorCloseFinished()
+        {
+            elevatorController.TryMove();
         }
 
         void HandleTriggerActivated()
         {
+            if (doorController.State.running)
+                doorController.TryOpenAndLock();
         }
 
         void HandleTriggerDeactivated()
         {
+            if (!elevatorController.Waiting)
+                doorController.UnlockAndClose();
         }
     }
 }

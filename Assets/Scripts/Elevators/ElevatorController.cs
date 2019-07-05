@@ -8,14 +8,18 @@ namespace Krk.Elevators
     {
         public UnityAction<FloorData> OnMoveStarted;
         public UnityAction<int> OnMoveFinished;
+        public UnityAction OnWaitStarted;
+        public UnityAction OnWaitFinished;
 
         readonly ElevatorConfig config;
         readonly IList<int> queue;
 
         int currentFloorIndex;
         bool running;
+        bool waiting;
 
         public bool Running => running;
+        public bool Waiting => waiting;
 
         public int CurrentFloorIndex => currentFloorIndex;
         public FloorData CurrentFloor => config.floors[currentFloorIndex];
@@ -46,6 +50,10 @@ namespace Krk.Elevators
                 {
                     queue.Add(floorIndex);
                     TryMove();
+                }
+                else
+                {
+                    FinishMove();
                 }
             }
             else
@@ -85,8 +93,18 @@ namespace Krk.Elevators
         {
             running = false;
             OnMoveFinished?.Invoke(currentFloorIndex);
+        }
 
-            TryMove();
+        public void WaitStart()
+        {
+            waiting = true;
+            OnWaitStarted?.Invoke();
+        }
+
+        public void WaitFinish()
+        {
+            waiting = false;
+            OnWaitFinished?.Invoke();
         }
 
         public bool IsOnFloor(int floorIndex)

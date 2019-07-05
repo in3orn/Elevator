@@ -1,3 +1,5 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -20,6 +22,7 @@ namespace Krk.Elevators
         void OnEnable()
         {
             controller.OnMoveStarted += HandleElevatorMoved;
+            controller.OnWaitStarted += HandleElevatorWaitStarted;
 
             view.OnMoveFinished += HandleElevatorMoveFinished;
         }
@@ -27,6 +30,7 @@ namespace Krk.Elevators
         void OnDisable()
         {
             controller.OnMoveStarted -= HandleElevatorMoved;
+            controller.OnWaitStarted -= HandleElevatorWaitStarted;
 
             view.OnMoveFinished -= HandleElevatorMoveFinished;
         }
@@ -35,10 +39,22 @@ namespace Krk.Elevators
         {
             view.Move(data.y);
         }
+        
+        void HandleElevatorWaitStarted()
+        {
+//            DOVirtual.DelayedCall(controller.Config.waitDuration, Aaa);
+            StartCoroutine(Wait());
+        }
 
         void HandleElevatorMoveFinished()
         {
             controller.FinishMove();
+        }
+
+        IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(controller.Config.waitDuration);
+            controller.WaitFinish();
         }
     }
 }

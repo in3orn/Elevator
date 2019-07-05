@@ -167,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5294844181369829352}
   - component: {fileID: 4785667813690271397}
+  - component: {fileID: 8228962824271506516}
   m_Layer: 5
   m_Name: Elevator Button Panel
   m_TagString: Untagged
@@ -211,3 +212,16 @@ MonoBehaviour:
     steps:
     - item: {fileID: 8207903637766571517}
       config: {fileID: 11400000, guid: 4bc8d649ef9f3454d9847be9ef13c043, type: 2}
+--- !u!114 &8228962824271506516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970802526905012935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c182fa26af47f282f43d327cbc74b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 4785667813690271397}

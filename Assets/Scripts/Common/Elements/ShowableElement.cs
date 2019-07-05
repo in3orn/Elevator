@@ -1,11 +1,15 @@
 using DG.Tweening;
 using Krk.Common.Animations;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Krk.Common.Elements
 {
     public class ShowableElement : MonoBehaviour
     {
+        public UnityAction OnShowFinished;
+        public UnityAction OnHideFinished;
+
         public SequenceData showSequenceData;
 
         Sequence showSequence;
@@ -46,6 +50,7 @@ namespace Krk.Common.Elements
             shown = true;
 
             showSequence.Flip();
+            showSequence.OnComplete(ShowFinish);
             showSequence.Play();
         }
 
@@ -55,7 +60,18 @@ namespace Krk.Common.Elements
             shown = false;
 
             showSequence.Flip();
+            showSequence.OnComplete(HideFinish);
             showSequence.Play();
+        }
+
+        void ShowFinish()
+        {
+            OnShowFinished?.Invoke();
+        }
+
+        void HideFinish()
+        {
+            OnHideFinished?.Invoke();
         }
     }
 }

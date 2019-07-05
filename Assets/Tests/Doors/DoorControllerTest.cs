@@ -25,7 +25,7 @@ namespace Krk.Doors
         public void WhenReinitializedShouldBeUnlockedAndClosed()
         {
             controller.SetLocked(true);
-            controller.Open();
+            controller.OpenStart();
 
             controller.Init();
 

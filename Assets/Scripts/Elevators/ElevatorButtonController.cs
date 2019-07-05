@@ -1,3 +1,4 @@
+using Krk.Doors;
 using UnityEngine.Events;
 
 namespace Krk.Elevators
@@ -8,6 +9,7 @@ namespace Krk.Elevators
 
         readonly FloorConfig config;
         readonly ElevatorController elevatorController;
+        readonly ElevatorDoorController elevatorDoorController;
 
         bool switchedOn;
         bool inRange;
@@ -27,10 +29,12 @@ namespace Krk.Elevators
             }
         }
 
-        public ElevatorButtonController(FloorConfig config, ElevatorController elevatorController)
+        public ElevatorButtonController(FloorConfig config, ElevatorController elevatorController,
+            ElevatorDoorController elevatorDoorController)
         {
             this.config = config;
             this.elevatorController = elevatorController;
+            this.elevatorDoorController = elevatorDoorController;
         }
 
         public void SwitchOn()
@@ -52,7 +56,7 @@ namespace Krk.Elevators
 
         void UpdateCanUse()
         {
-            var newCanUse = inRange && !switchedOn && !elevatorController.IsOnFloor(config.floorIndex);
+            var newCanUse = inRange && !switchedOn && !elevatorDoorController.State.open;
             if (canUse != newCanUse)
             {
                 canUse = newCanUse;

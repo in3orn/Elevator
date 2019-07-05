@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928e5984b4b04efba70bc452ae8a59c9, type: 3}
   m_Name: Elevator
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
+  waitDuration: 3
   defaultFloorIndex: 0
   floors:
   - number: GF
@@ -20,10 +21,10 @@ MonoBehaviour:
     y: 0
   - number: 01.
     name: White on Black
-    y: 10
+    y: 5
   - number: 02.
     name: Red on White
-    y: 20
+    y: 10
   - number: 03.
     name: White on White
-    y: 40
+    y: 15

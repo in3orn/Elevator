@@ -7,5 +7,6 @@ namespace Krk.Doors
     {
         public bool open;
         public bool locked;
+        public bool running;
     }
 }

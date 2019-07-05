@@ -11,14 +11,14 @@ namespace Krk.Doors
 
         public void OpenAndLock()
         {
-            doorController.Open();
+            doorController.OpenStart();
             doorController.SetLocked(true);
         }
 
         public void UnlockAndClose()
         {
             doorController.SetLocked(false);
-            doorController.Close();
+            doorController.CloseStart();
         }
     }
 }

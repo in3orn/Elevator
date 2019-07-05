@@ -12,11 +12,6 @@ namespace Krk.Elevators
         [Inject] ElevatorButtonController controller;
         [Inject] ElevatorController elevatorController;
 
-        void Start()
-        {
-            view.Init(false);
-        }
-
         void OnEnable()
         {
             trigger.OnActivated += HandleTriggerActivated;

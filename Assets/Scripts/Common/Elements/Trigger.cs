@@ -12,6 +12,8 @@ namespace Krk.Common.Elements
         [SerializeField] TriggerConfig config;
 
         int count;
+
+        public bool IsActivated => count > 0;
         
         void OnTriggerEnter(Collider other)
         {

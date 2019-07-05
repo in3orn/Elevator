@@ -1,12 +1,27 @@
 using Krk.Elevators;
+using UnityEngine.Events;
 
 namespace Krk.Doors
 {
     public class ElevatorDoorController
     {
+        public UnityAction OnOpenFinished
+        {
+            get => doorController.OnOpenFinished;
+            set => doorController.OnOpenFinished = value;
+        }
+
+        public UnityAction OnCloseFinished
+        {
+            get => doorController.OnCloseFinished;
+            set => doorController.OnCloseFinished = value;
+        }
+
         readonly FloorConfig config;
         readonly DoorController doorController;
         readonly ElevatorController elevatorController;
+
+        public DoorState State => doorController.State;
 
         public ElevatorDoorController(FloorConfig config, DoorController doorController,
             ElevatorController elevatorController)
@@ -20,14 +35,14 @@ namespace Krk.Doors
         {
             if (!elevatorController.IsOnFloor(config.floorIndex)) return;
 
-            doorController.Open();
+            doorController.OpenStart();
             doorController.SetLocked(true);
         }
 
         public void UnlockAndClose()
         {
             doorController.SetLocked(false);
-            doorController.Close();
+            doorController.CloseStart();
         }
     }
 }

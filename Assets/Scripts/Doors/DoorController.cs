@@ -4,8 +4,10 @@ namespace Krk.Doors
 {
     public class DoorController
     {
-        public UnityAction OnOpened;
-        public UnityAction OnClosed;
+        public UnityAction OnOpenStarted;
+        public UnityAction OnOpenFinished;
+        public UnityAction OnCloseStarted;
+        public UnityAction OnCloseFinished;
         
         readonly DoorState state;
 
@@ -20,26 +22,42 @@ namespace Krk.Doors
         {
             state.open = false;
             state.locked = false;
+            state.running = false;
         }
 
-        public void Open()
+        public void OpenStart()
         {
             if (state.locked) return;
             if (state.open) return;
 
             state.open = true;
+            state.running = true;
             
-            OnOpened?.Invoke();
+            OnOpenStarted?.Invoke();
         }
 
-        public void Close()
+        public void OpenFinish()
+        {
+            state.running = false;
+            
+            OnOpenFinished?.Invoke();
+        }
+
+        public void CloseStart()
         {
             if (state.locked) return;
             if (!state.open) return;
 
             state.open = false;
             
-            OnClosed?.Invoke();
+            OnCloseStarted?.Invoke();
+        }
+
+        public void CloseFinish()
+        {
+            state.running = false;
+            
+            OnCloseFinished?.Invoke();
         }
 
         public void SetLocked(bool value)
