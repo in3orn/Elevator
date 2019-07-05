@@ -42,6 +42,8 @@ namespace Krk.Common.Elements
         {
             showSequence = DOTween.Sequence();
             showSequence.Init(showSequenceData);
+            showSequence.OnComplete(ShowFinish);
+            showSequence.OnRewind(HideFinish);
         }
 
         public void Show(bool force = false)
@@ -50,7 +52,6 @@ namespace Krk.Common.Elements
             shown = true;
 
             showSequence.Flip();
-            showSequence.OnComplete(ShowFinish);
             showSequence.Play();
         }
 
@@ -60,7 +61,6 @@ namespace Krk.Common.Elements
             shown = false;
 
             showSequence.Flip();
-            showSequence.OnComplete(HideFinish);
             showSequence.Play();
         }
 

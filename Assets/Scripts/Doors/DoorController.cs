@@ -49,6 +49,7 @@ namespace Krk.Doors
             if (!state.open) return;
 
             state.open = false;
+            state.running = true;
             
             OnCloseStarted?.Invoke();
         }

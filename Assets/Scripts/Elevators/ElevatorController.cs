@@ -72,7 +72,7 @@ namespace Krk.Elevators
 
         public void TryMove()
         {
-            if (running) return;
+            if (running || waiting) return;
 
             while (queue.Count > 0)
             {

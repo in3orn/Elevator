@@ -65,7 +65,7 @@ namespace Krk.Doors
 
         void HandleTriggerDeactivated()
         {
-            if (!elevatorController.Waiting)
+            if (!elevatorController.Waiting && !doorController.State.running)
                 doorController.UnlockAndClose();
         }
     }
