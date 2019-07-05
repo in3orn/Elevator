@@ -21,7 +21,7 @@ MonoBehaviour:
     name: Ground Floor
     y: 0
   - number: 01.
-    name: White on Black
+    name: Black on White
     y: 5
   - number: 02.
     name: Red on White
