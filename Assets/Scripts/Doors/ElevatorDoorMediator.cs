@@ -15,7 +15,7 @@ namespace Krk.Doors
         void OnEnable()
         {
             elevatorController.OnMoveFinished += HandleElevatorMoveFinished;
-            elevatorController.OnWaitFinished += HandleElevatorWaitFinished;
+            elevatorController.OnWaitForDoorFinished += HandleElevatorWaitFinished;
 
             doorController.OnOpenFinished += HandleDoorOpenFinished;
             doorController.OnCloseFinished += HandleDoorCloseFinished;
@@ -27,7 +27,7 @@ namespace Krk.Doors
         void OnDisable()
         {
             elevatorController.OnMoveFinished -= HandleElevatorMoveFinished;
-            elevatorController.OnWaitFinished -= HandleElevatorWaitFinished;
+            elevatorController.OnWaitForDoorFinished -= HandleElevatorWaitFinished;
 
             doorController.OnOpenFinished -= HandleDoorOpenFinished;
             doorController.OnCloseFinished -= HandleDoorCloseFinished;
@@ -49,7 +49,7 @@ namespace Krk.Doors
 
         void HandleDoorOpenFinished()
         {
-            elevatorController.WaitStart();
+            elevatorController.WaitForDoorStart();
         }
 
         void HandleDoorCloseFinished()
@@ -65,7 +65,7 @@ namespace Krk.Doors
 
         void HandleTriggerDeactivated()
         {
-            if (!elevatorController.Waiting && !doorController.State.running)
+            if (!elevatorController.WaitingForDoor && !doorController.State.running)
                 doorController.UnlockAndClose();
         }
     }

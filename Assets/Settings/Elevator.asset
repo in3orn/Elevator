@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Elevator
   m_EditorClassIdentifier: 
   speed: 1
-  waitDuration: 3
+  waitForDoorDuration: 3
+  waitIdleDuration: 5
   defaultFloorIndex: 0
   floors:
   - number: GF

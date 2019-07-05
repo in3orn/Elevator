@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Krk.Elevators
 {
@@ -6,7 +7,8 @@ namespace Krk.Elevators
     public class ElevatorConfig : ScriptableObject
     {
         public float speed;
-        public float waitDuration;
+        [FormerlySerializedAs("waitDuration")] public float waitForDoorDuration;
+        public float waitIdleDuration;
         public int defaultFloorIndex;
         public FloorData[] floors;
     }

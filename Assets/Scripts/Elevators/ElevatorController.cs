@@ -8,18 +8,22 @@ namespace Krk.Elevators
     {
         public UnityAction<FloorData> OnMoveStarted;
         public UnityAction<int> OnMoveFinished;
-        public UnityAction OnWaitStarted;
-        public UnityAction OnWaitFinished;
+        public UnityAction OnWaitForDoorStarted;
+        public UnityAction OnWaitForDoorFinished;
+        public UnityAction OnWaitIdleStarted;
+        public UnityAction OnWaitIdleStopped;
+        public UnityAction OnWaitIdleFinished;
 
         readonly ElevatorConfig config;
         readonly IList<int> queue;
 
         int currentFloorIndex;
         bool running;
-        bool waiting;
+        bool waitingForDoor;
+        bool waitingIdle;
 
         public bool Running => running;
-        public bool Waiting => waiting;
+        public bool WaitingForDoor => waitingForDoor;
 
         public int CurrentFloorIndex => currentFloorIndex;
         public FloorData CurrentFloor => config.floors[currentFloorIndex];
@@ -72,7 +76,7 @@ namespace Krk.Elevators
 
         public void TryMove()
         {
-            if (running || waiting) return;
+            if (running || waitingForDoor) return;
 
             while (queue.Count > 0)
             {
@@ -80,6 +84,8 @@ namespace Krk.Elevators
                 queue.RemoveAt(0);
                 if (currentFloorIndex != nextFloorIndex)
                 {
+                    WaitIdleStop();
+
                     currentFloorIndex = nextFloorIndex;
                     running = true;
 
@@ -87,6 +93,9 @@ namespace Krk.Elevators
                     return;
                 }
             }
+
+            if (currentFloorIndex != config.defaultFloorIndex)
+                WaitIdleStart();
         }
 
         public void FinishMove()
@@ -95,16 +104,42 @@ namespace Krk.Elevators
             OnMoveFinished?.Invoke(currentFloorIndex);
         }
 
-        public void WaitStart()
+        public void WaitForDoorStart()
         {
-            waiting = true;
-            OnWaitStarted?.Invoke();
+            waitingForDoor = true;
+            OnWaitForDoorStarted?.Invoke();
         }
 
-        public void WaitFinish()
+        public void WaitForDoorFinish()
         {
-            waiting = false;
-            OnWaitFinished?.Invoke();
+            waitingForDoor = false;
+            OnWaitForDoorFinished?.Invoke();
+        }
+
+        public void WaitIdleStart()
+        {
+            waitingIdle = true;
+            OnWaitIdleStarted?.Invoke();
+        }
+
+        public void WaitIdleStop()
+        {
+            if (!waitingIdle) return;
+
+            waitingIdle = false;
+            OnWaitIdleStopped?.Invoke();
+        }
+
+        public void WaitIdleFinish()
+        {
+            waitingIdle = false;
+            if (currentFloorIndex != config.defaultFloorIndex)
+            {
+                queue.Add(config.defaultFloorIndex);
+                TryMove();
+            }
+
+            OnWaitIdleFinished?.Invoke();
         }
 
         public bool IsOnFloor(int floorIndex)

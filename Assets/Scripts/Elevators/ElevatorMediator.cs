@@ -1,5 +1,4 @@
 using System.Collections;
-using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +12,8 @@ namespace Krk.Elevators
 
         public ElevatorController Controller => controller;
 
+        Coroutine waitIdleCoroutine;
+
         void Start()
         {
             controller.Init();
@@ -22,7 +23,9 @@ namespace Krk.Elevators
         void OnEnable()
         {
             controller.OnMoveStarted += HandleElevatorMoved;
-            controller.OnWaitStarted += HandleElevatorWaitStarted;
+            controller.OnWaitForDoorStarted += HandleElevatorWaitForDoorStarted;
+            controller.OnWaitIdleStarted += HandleElevatorWaitIdleStarted;
+            controller.OnWaitIdleStopped += HandleElevatorWaitIdleStopped;
 
             view.OnMoveFinished += HandleElevatorMoveFinished;
         }
@@ -30,7 +33,9 @@ namespace Krk.Elevators
         void OnDisable()
         {
             controller.OnMoveStarted -= HandleElevatorMoved;
-            controller.OnWaitStarted -= HandleElevatorWaitStarted;
+            controller.OnWaitForDoorStarted -= HandleElevatorWaitForDoorStarted;
+            controller.OnWaitIdleStarted -= HandleElevatorWaitIdleStarted;
+            controller.OnWaitIdleStopped -= HandleElevatorWaitIdleStopped;
 
             view.OnMoveFinished -= HandleElevatorMoveFinished;
         }
@@ -39,11 +44,20 @@ namespace Krk.Elevators
         {
             view.Move(data.y);
         }
-        
-        void HandleElevatorWaitStarted()
+
+        void HandleElevatorWaitForDoorStarted()
         {
-//            DOVirtual.DelayedCall(controller.Config.waitDuration, Aaa);
-            StartCoroutine(Wait());
+            StartCoroutine(WaitForDoor());
+        }
+
+        void HandleElevatorWaitIdleStarted()
+        {
+            waitIdleCoroutine = StartCoroutine(WaitIdle());
+        }
+
+        void HandleElevatorWaitIdleStopped()
+        {
+            StopCoroutine(waitIdleCoroutine);
         }
 
         void HandleElevatorMoveFinished()
@@ -51,10 +65,16 @@ namespace Krk.Elevators
             controller.FinishMove();
         }
 
-        IEnumerator Wait()
+        IEnumerator WaitForDoor()
         {
-            yield return new WaitForSeconds(controller.Config.waitDuration);
-            controller.WaitFinish();
+            yield return new WaitForSeconds(controller.Config.waitForDoorDuration);
+            controller.WaitForDoorFinish();
+        }
+
+        IEnumerator WaitIdle()
+        {
+            yield return new WaitForSeconds(controller.Config.waitIdleDuration);
+            controller.WaitIdleFinish();
         }
     }
 }
